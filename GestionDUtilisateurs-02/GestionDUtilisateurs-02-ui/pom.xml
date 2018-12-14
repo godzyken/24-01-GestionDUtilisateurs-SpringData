@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>GestionDUtilisateurs-02</artifactId>
+		<groupId>fr.afpa</groupId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>GestionDUtilisateurs-02-ui</artifactId>
+	<packaging>war</packaging>
+
+	<name>GestionDUtilisateurs-02-ui Maven Webapp</name>
+	<!-- FIXME change it to the project's website -->
+	<url>http://www.example.com</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+
+		<!-- Le nom "public" de l'application -->
+		<application.name>AfpaTest WebApp</application.name>
+
+		<!-- Le format à utiliser pour afficher la date du build -->
+		<maven.build.timestamp.format>dd/MM/yyyy</maven.build.timestamp.format>
+
+		<!-- Propriété servant à contourner le bug du non remplacement de la propriété 
+			maven.build.timestamp lors du filtrage des ressources -->
+		<buildTimestamp>${maven.build.timestamp}</buildTimestamp>
+	</properties>
+
+	<dependencies>
+		<!-- ===== (04.01.)Modules du projet ===== -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>GestionDUtilisateurs-02-business</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>GestionDUtilisateurs-02-model</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>GestionDUtilisateurs-02-ui</finalName>
+		<pluginManagement><!-- lock down plugins versions to avoid using Maven 
+				defaults (may be moved to parent pom) -->
+
+			<!-- ========================================================= -->
+			<!-- (05.02.)Plugins -->
+			<!-- ========================================================= -->
+			<plugins>
+				<!-- (05.02.01.)Plug-in de nettoyage -->
+				<plugin>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>3.0.0</version>
+				</plugin>
+				<!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
+
+				<!-- (05.02.02.)Plugin de prise en compte des resources -->
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>3.0.2</version>
+				</plugin>
+
+				<!-- (05.02.03.)Plug-in de compilation : A DESACTIVER !!! -->
+				<!-- <plugin> <artifactId>maven-compiler-plugin</artifactId> <version>3.7.0</version> 
+					</plugin> -->
+
+				<!-- (05.02.04.)Plug-in infaillible -->
+				<plugin>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.20.1</version>
+				</plugin>
+
+				<!-- (05.02.05.)Plugin de génération du war -->
+				<plugin>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>3.2.0</version>
+					<configuration>
+						<webResources>
+							<resource>
+								<directory>src/main/resources</directory>
+							</resource>
+						</webResources>
+						<resource>
+							<filtering>true</filtering>
+							<directory>src/main/webapp</directory>
+							<includes>
+								<include>jsp/_include/header.jsp</include>
+								<include>jsp/_include/footer.jsp</include>
+								<include>jsp/about.jsp</include>
+							</includes>
+						</resource>
+					</configuration>
+				</plugin>
+
+				<!-- (05.02.07.)Plug-in d'installation -->
+				<plugin>
+					<artifactId>maven-install-plugin</artifactId>
+					<version>2.5.2</version>
+				</plugin>
+
+				<!-- (05.02.08.)Plug-in de deploiement -->
+				<plugin>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>2.8.2</version>
+				</plugin>
+
+				<!-- (05.02.09.)Plug-in d'interfacage entre Spring-Boot et Maven : A 
+					DESACTIVER !!! -->
+				<!-- plugin> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-maven-plugin</artifactId> 
+					</plugin -->
+
+			</plugins>
+		</pluginManagement>
+
+		<!-- ========================================================= -->
+		<!-- (05.03.)Resources -->
+		<!-- ========================================================= -->
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+	</build>
+</project>

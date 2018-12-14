@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- ========================================================= -->
+	<!-- (05.01.)Informations sur le parent du projet -->
+	<!-- ========================================================= -->
+	<parent>
+		<groupId>fr.afpa</groupId>
+		<artifactId>GestionDUtilisateurs-02</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+	<!-- ========================================================= -->
+	<!-- (02.)Informations sur le projet -->
+	<!-- ========================================================= -->
+
+	<!-- ===== (02.01.)Informations d'identification du projet ===== -->
+	<artifactId>GestionDUtilisateurs-02-business</artifactId>
+	<packaging>jar</packaging>
+
+	<!-- ===== (02.02.)Informations generales ===== -->
+	<name>GestionDUtilisateurs-02-business</name>
+	<url>http://maven.apache.org</url>
+
+
+
+	<!-- ========================================================= -->
+	<!-- (05.)Construction de l'exécutable du projet -->
+	<!-- ========================================================= -->
+	<build>
+		<!-- ========================================================= -->
+		<!-- (05.01.)Nom du fichier executable -->
+		<!-- ========================================================= -->
+		<finalName>GestionDUtilisateurs-02-business</finalName>
+
+		<!-- ========================================================= -->
+		<!-- (05.02.)Plugins -->
+		<!-- ========================================================= -->
+		<plugins>
+			<!-- FIXME : A RENSEIGNER -->
+		</plugins>
+
+		<!-- ========================================================= -->
+		<!-- (05.03.)Resources -->
+		<!-- ========================================================= -->
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+	</build>
+
+	<!-- =============================================================== -->
+	<!-- (04.)Dependances du projet -->
+	<!-- =============================================================== -->
+	<dependencies>
+		<!-- =============================================================== -->
+		<!-- ====== (04.01.)Modules ============================= -->
+		<!-- =============================================================== -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>GestionDUtilisateurs-02-model</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>GestionDUtilisateurs-02-persistence</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+
+		<!-- ===== (04.01.)bibliotheque tierce ===== -->
+
+		<!-- =============================================================== -->
+		<!-- ====== (04.02.)Connecteurs de BDD ============================= -->
+		<!-- =============================================================== -->
+		<!-- Connecteur JDBC pour MYSQL -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+
+		<!-- =============================================================== -->
+		<!-- ====== (04.03.)Spring-BOOT ==================================== -->
+		<!-- =============================================================== -->
+		<!-- (04.03.01.)Spring-BOOT-Starter -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<!-- (04.03.02.)Spring-BOOT-starter-Data-JPA -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<!-- (04.03.03.)Spring-BOOT-starter-data-REST -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
+		</dependency>
+		<!-- (04.03.04.)Spring-BOOT-starter-TOMCAT -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+		</dependency>
+		<!-- (04.03.05.)Spring-BOOT-starter-test -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+		</dependency>
+
+		<!-- (04.03.06.)Spring-BOOT-starter-Security : A IGNORER !!! -->
+		<!-- (04.03.07.)Spring-BOOT-starter-Thymeleaf : A IGNORER !!! -->
+
+		<!-- (04.03.08.)Spring-BOOT-starter-LOG4J2 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j2</artifactId>
+		</dependency>
+		<!-- (04.03.09.)Spring-BOOT-DEVTOOLS -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+
+		<!-- =============================================================== -->
+		<!-- ====== (04.04.)Thymeleaf-Spring-Security ====================== -->
+		<!-- =============================================================== -->
+		<!-- (04.04.01.)Thymeleaf-Spring-Security : A DESACTIVER !!! -->
+
+		<!-- =============================================================== -->
+		<!-- ====== (04.05.)Apache-LOG4J-SLF4J-Logger ====================== -->
+		<!-- =============================================================== -->
+		<!-- (04.05.01.)SLF4J-API -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<!-- (04.05.02.)Apache-LOG4J-SLF4J-IMPL -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+		</dependency>
+
+		<!-- (04.05.03.)SLF4J-LOG4J12 -->
+		<!-- dependency> <groupId>org.slf4j</groupId> <artifactId>slf4j-log4j12</artifactId> 
+			</dependency -->
+
+		<!-- =============================================================== -->
+		<!-- ====== (04.06.)Apache Logger ================================== -->
+		<!-- =============================================================== -->
+		<!-- (04.06.01.)Apache-LOG4J-CORE -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+		</dependency>
+		<!-- (04.06.02.)Apache-LOG4J-API -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+		</dependency>
+		<!-- (04.06.03.)Apache-LOG4J-JCL -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-jcl</artifactId>
+		</dependency>
+
+		<!-- =============================================================== -->
+		<!-- ====== (04.07.)Tests unitaires ================================ -->
+		<!-- =============================================================== -->
+
+		<!-- JUnit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+	</dependencies>
+</project>
